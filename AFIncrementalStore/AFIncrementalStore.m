@@ -631,6 +631,7 @@ withAttributeAndRelationshipValuesFromManagedObject:(NSManagedObject *)managedOb
                     NSManagedObject *backingObject = [backingContext existingObjectWithID:backingObjectID error:nil];
                     [backingContext deleteObject:backingObject];
                     [backingContext save:nil];
+                    [_backingObjectIDByObjectID removeObjectForKey:deletedObject.objectID];
                 }];
                 continue;
             }
